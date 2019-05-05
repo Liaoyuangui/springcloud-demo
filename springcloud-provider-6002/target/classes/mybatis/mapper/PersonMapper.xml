@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyg.springcloud.dao.PersonMapper" >
+  <resultMap id="BaseResultMap" type="com.lyg.springcloud.entity.Person" >
+    <id column="id" property="id" jdbcType="NUMERIC" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+     id,name,sex,age
+  </sql>
+  
+<!-- 根据id修改个人信息 -->  
+<update id="updatePersonById" parameterType="com.lyg.springcloud.entity.Person" >
+  update person 
+  <set>
+	  <if test="name != null">
+	    name = #{name},
+	  </if>
+	  <if test="sex != null">
+	    sex = #{sex},
+	  </if>
+	  <if test="age != null">
+	    age = #{age}
+	  </if>
+  </set>
+  where  id = #{id}
+</update>
+
+</mapper>

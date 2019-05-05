@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: springcloud-eureka-9002 #需要和github中的资源名称一样
+      profile: dev
+      label: master
+      uri: http://configserver.com:6688  #获取github服务地址

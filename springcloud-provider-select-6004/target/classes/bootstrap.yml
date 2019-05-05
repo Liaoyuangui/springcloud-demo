@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      name: springcloud-provider-6004 #需要和github中配置文件名称一致
+      #profile: dev
+      profile: test
+      label: master
+      uri: http://configserver.com:6688 #服务地址，连通github
+      
